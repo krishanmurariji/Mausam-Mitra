@@ -38,7 +38,7 @@ async function getWeather(city) {
     getWeather(city.value)
   });
   
-  getWeather("Nagpur");
+  getWeather("Chandigarh");
 
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
