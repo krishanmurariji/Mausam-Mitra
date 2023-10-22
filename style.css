@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+    body {
+        background: linear-gradient(135deg, #65a8ce, #87ceeb );
+      }
+      
+
+
+.navbar{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+}
+
+#weather-info{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Bree Serif', serif;
+    letter-spacing: 1px;
+}
+
+#table{
+    letter-spacing: 2px;
+}
+
+
+#footer{
+    /* background-color: lime; */
+    display: flex;
+    align-items: center;
+}
+
+#footer img{
+    margin-right: 10px;
+}
+
+#footer p{
+    /* background-color: orchid; */
+    margin-left: auto;
+}
+/* Add custom CSS styles */
+.navbar {
+    transition: all 0.5s;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #00ff08, #0000FF);
+  }
+  
+  .navbar:hover {
+    background: linear-gradient(to right, #0000FF, #00ff08);
+  }
+  
+  .navbar .navbar-toggler-icon {
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+  }
+  
+  .navbar-toggler-icon:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #submit {
+    color: yellow;
+  }

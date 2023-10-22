@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="logo2.png">
+    <script src="index.js" defer></script>
+    <title>Mausam Mitra | Get live weather reports</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #131313;  " >
+      <!-- Navbar content -->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="logo2.png" alt="" width="40" height="30" class="d-inline-block align-text-top">
+          Mausam Mitra
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="myModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  About
+              </a>
+            </li>
+          </ul>
+
+            
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" id="myInput">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Welcome to myWeather-App</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Krish welcomes you to the Mausam Mitra website, a modern weather application that brings real-time weather updates to your fingertips. This website is designed using a combination of web technologies to provide a seamless user experience. It incorporates HTML for structuring the content, CSS for styling and layout, and Bootstrap for responsive design. JavaScript is used for interactivity, and the Bootstrap framework facilitates the dynamic components, such as the responsive navigation bar and modals. Additionally, the website fetches live weather data from external APIs to keep you informed about the current conditions and forecasts. With a clean, user-friendly interface, Mausam Mitra ensures that you can quickly access accurate weather information for any location worldwide.</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <form class="d-flex">
+            <input id="city" class="form-control me-2" type="search" placeholder="Search any city" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    
+    <div  id="weather-info">
+    <div class="container">
+      <div class="container">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-light opacity-50" >Weather for <span id="cityName"></span></h1>
+          <p class="fs-5 text-light opacity-75">Welcome, to myWeather."Your Personal Weather Guide, Always on Your Side!"</p>
+        </div>
+      </header>
+    
+      <main>
+        <div class="row row-cols-1 mb-3 row-cols-md-3 text-center">
+          <div class="col opacity-75 mb-2">
+            <div class="card rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Temperature</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class=" fw-light text-muted">&#8451;</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Temperature is : <span id="temp"></span>&#8451;</li>
+                  <li>Minimum temperature is :<span id="min_temp"></span>&#8451;</li>
+                  <li>Maximum temperature is : <span id="max_temp"></span>&#8451;</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+              </div>
+            </div>
+          </div>
+          <div class="col opacity-75 mb-2">
+            <div class="card rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Humidity</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class=" fw-light text-muted">g.m-3</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Humidity is : <sg.m-3 id="humidity"></sg.m-3</li>
+                  <li>Sunrise Time is : <span id="sunrise"></span></li>
+                  <li>Sunset Time is : <span id="sunset"></span></li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+              </div>
+            </div>
+          </div>
+          <div class="col opacity-75 mb-2">
+            <div class="card rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3  border-primary">
+                <h4 class="my-0 fw-normal">Wind Info</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small class=" fw-light text-muted">km/hr</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Wind Speed is : <span id="wind_speed"></span>km/hr</li>
+                  <li>Wind Degrees is : <span id="wind_degrees"></span>&#176;</li>
+                  <li>Cloud PCT is : <span id="cloud_pct"></span></li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </main>
+    </div>
+    </div>    
+  
+    <div class="card text-light" style="background-image: linear-gradient(to right top, #FFA500, #0000FF);"
+    >
+      <div class="card-header border-secondary p-3 ">
+        <h3 class="text-center">Weather of other common places</h3>
+      </div>
+      <div class="card-body" >
+        <div class="table-container mt-3"  >
+          <table class="table table-white text-light text-center" id="table" >
+            <thead>
+              <tr >
+                <th>*</th>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Wind Info</th>  
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>New York</td>
+                <td>18 &#8451;</td>
+                <td>35 g.m-3</td>
+                <td>15 km/hr</td>
+                
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>London</td>
+                <td>20 &#8451;</td>
+                <td>37 g.m-3</td>
+                <td>20 km/hr</td>
+                
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Paris</td>
+                <td>26 &#8451;</td>
+                <td>40 g.m-3</td>
+                <td>25 km/hr</td>
+                
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Delhi</td>
+                <td>36 &#8451;</td>
+                <td>50 g.m-3</td>
+                <td>30 km/hr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+      </div>
+      <div class="card-header border-secondary">
+        <div id="footer">
+          <img src="logo2.png" alt="logo" width="40" height="34">Mausam Mitra
+          
+          <p>&#169;Copyright, Full Rights Reserved.</p>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    </div>  
+    
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
