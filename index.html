@@ -1,209 +1,340 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <!-- SEO Meta Tags -->
+    <title>Mausam Mitra | Real-Time Weather Updates by Krishan Murari</title>
+    <meta name="description" content="Get accurate real-time weather updates for any city worldwide. Built by Krishan Murari.">
+    <meta name="author" content="Krishan Murari">
+    <meta name="keywords" content="weather app, mausam mitra, real-time weather, krishan murari, weather forecast">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mausam Mitra - Real-Time Weather Updates">
+    <meta property="og:description" content="Your personal weather guide, always on your side.">
+    <meta property="og:image" content="https://github.com/user-attachments/assets/4ee4e42c-3277-4c54-9f42-c34eeb39ca96">
+    <meta property="og:url" content="https://mausam-mitra.vercel.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/4ee4e42c-3277-4c54-9f42-c34eeb39ca96">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet">
-    <link rel="icon" type="image/ico" href="logo2.png">
-    <script src="index.js" defer></script>
-    <title>Mausam Mitra | Get live weather reports</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #131313;  " >
-      <!-- Navbar content -->
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="logo2.png" alt="" width="40" height="30" class="d-inline-block align-text-top">
-          Mausam Mitra
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="myModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  About
-              </a>
-            </li>
-          </ul>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
 
-            
-            
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" id="myInput">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Welcome to Mausam Mitra</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Krish welcomes you to the Mausam Mitra website, a modern weather application that brings real-time weather updates to your fingertips. This website is designed using a combination of web technologies to provide a seamless user experience. It incorporates HTML for structuring the content, CSS for styling and layout, and Bootstrap for responsive design. JavaScript is used for interactivity, and the Bootstrap framework facilitates the dynamic components, such as the responsive navigation bar and modals. Additionally, the website fetches live weather data from external APIs to keep you informed about the current conditions and forecasts. With a clean, user-friendly interface, Mausam Mitra ensures that you can quickly access accurate weather information for any location worldwide.</p>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <form class="d-flex">
-            <input id="city" class="form-control me-2" type="search" placeholder="Search any city" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
-          </form>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass-nav sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="https://krishanmurari.live/">
+                <img src="https://github.com/user-attachments/assets/4ee4e42c-3277-4c54-9f42-c34eeb39ca96" alt="Mausam Mitra" class="nav-logo">
+                <span class="brand-text">Mausam Mitra</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            <i class="fas fa-info-circle me-1"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://krishanmurari.live/" target="_blank">
+                            <i class="fas fa-user me-1"></i> Portfolio
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-    
-    <div  id="weather-info">
-    <div class="container">
-      <div class="container">
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h1 class="display-4 fw-normal text-light opacity-50" >Weather for <span id="cityName"></span></h1>
-          <p class="fs-5 text-light opacity-75">Welcome, to Mausam Mitra."Your Personal Weather Guide, Always on Your Side!"</p>
+    <!-- Hero Section -->
+    <div class="container hero-section">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-5">
+                    <h1 class="hero-title" data-aos="fade-up">
+                        <i class="fas fa-cloud-sun weather-icon"></i>
+                        Mausam Mitra
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        Your Personal Weather Guide, Always on Your Side
+                    </p>
+                </div>
+
+                <!-- Search Box -->
+                <div class="search-container glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <form id="searchForm" class="search-form">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input 
+                                type="text" 
+                                id="city" 
+                                class="search-input" 
+                                placeholder="Search any city..." 
+                                autocomplete="off"
+                            >
+                            <button type="submit" id="submit" class="search-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </header>
-    
-      <main>
-        <div class="row row-cols-1 mb-3 row-cols-md-3 text-center">
-          <div class="col opacity-75 mb-2">
-            <div class="card rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Temperature</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"><span id="temp2"></span><small class=" fw-light text-muted">&#8451;</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Temperature is : <span id="temp"></span>&#8451;</li>
-                  <li>Minimum temperature is :<span id="min_temp"></span>&#8451;</li>
-                  <li>Maximum temperature is : <span id="max_temp"></span>&#8451;</li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-              </div>
-            </div>
-          </div>
-          <div class="col opacity-75 mb-2">
-            <div class="card rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">Humidity</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class=" fw-light text-muted">g.m-3</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Humidity is : <sg.m-3 id="humidity"></sg.m-3</li>
-                  <li>Sunrise Time is : <span id="sunrise"></span></li>
-                  <li>Sunset Time is : <span id="sunset"></span></li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-              </div>
-            </div>
-          </div>
-          <div class="col opacity-75 mb-2">
-            <div class="card rounded-3 shadow-sm border-primary">
-              <div class="card-header py-3  border-primary">
-                <h4 class="my-0 fw-normal">Wind Info</h4>
-              </div>
-              <div class="card-body">
-                <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small class=" fw-light text-muted">km/hr</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                  <li>Wind Speed is : <span id="wind_speed"></span>km/hr</li>
-                  <li>Wind Degrees is : <span id="wind_degrees"></span>&#176;</li>
-                  <li>Cloud PCT is : <span id="cloud_pct"></span></li>
-                </ul>
-                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-              </div>
-              
-            </div>
-            
-          </div>
-        </div>
-      </main>
     </div>
-    </div>    
-  
-    <div class="card text-light" style="background-image: linear-gradient(to right top, #FFA500, #0000FF);"
-    >
-      <div class="card-header border-secondary p-3 ">
-        <h3 class="text-center">Weather of other common places</h3>
-      </div>
-      <div class="card-body" >
-        <div class="table-container mt-3"  >
-          <table class="table table-white text-light text-center" id="table" >
-            <thead>
-              <tr >
-                <th>*</th>
-                <th>City</th>
-                <th>Temperature</th>
-                <th>Humidity</th>
-                <th>Wind Info</th>  
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>New York</td>
-                <td>18 &#8451;</td>
-                <td>35 g.m-3</td>
-                <td>15 km/hr</td>
-                
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>London</td>
-                <td>20 &#8451;</td>
-                <td>37 g.m-3</td>
-                <td>20 km/hr</td>
-                
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Paris</td>
-                <td>26 &#8451;</td>
-                <td>40 g.m-3</td>
-                <td>25 km/hr</td>
-                
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Delhi</td>
-                <td>36 &#8451;</td>
-                <td>50 g.m-3</td>
-                <td>30 km/hr</td>
-              </tr>
-            </tbody>
-          </table>
-        </div> 
-      </div>
-      <div class="card-header border-secondary">
-        <div id="footer">
-          <img src="instials.png" alt="logo" height="34px">SShayar
-          
-          <p>&#169;Copyright, Full Rights Reserved.</p>
+
+    <!-- Weather Display -->
+    <div class="container weather-section" id="weatherInfo">
+        <div class="city-name-display text-center mb-5" data-aos="fade-up">
+            <h2 class="current-city">
+                <i class="fas fa-map-marker-alt me-2"></i>
+                Weather for <span id="cityName">Chandigarh</span>
+            </h2>
         </div>
-        
-      </div>
+
+        <!-- Main Weather Cards -->
+        <div class="row g-4 mb-5">
+            <!-- Temperature Card -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card weather-card h-100">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-temperature-high card-icon temp-icon"></i>
+                    </div>
+                    <h3 class="card-title">Temperature</h3>
+                    <div class="main-value">
+                        <span id="temp2">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span>Current: <strong id="temp">--</strong>°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>Min: <strong id="min_temp">--</strong>°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Max: <strong id="max_temp">--</strong>°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humidity Card -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card weather-card h-100">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-tint card-icon humidity-icon"></i>
+                    </div>
+                    <h3 class="card-title">Humidity</h3>
+                    <div class="main-value">
+                        <span id="humidity2">--</span>
+                        <span class="unit">%</span>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-water"></i>
+                            <span>Level: <strong id="humidity">--</strong>%</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-sunrise"></i>
+                            <span>Sunrise: <strong id="sunrise">--</strong></span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-sunset"></i>
+                            <span>Sunset: <strong id="sunset">--</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wind Card -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-card weather-card h-100 featured-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fas fa-wind card-icon wind-icon"></i>
+                    </div>
+                    <h3 class="card-title">Wind Info</h3>
+                    <div class="main-value">
+                        <span id="wind_speed2">--</span>
+                        <span class="unit">km/h</span>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-gauge-high"></i>
+                            <span>Speed: <strong id="wind_speed">--</strong> km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-compass"></i>
+                            <span>Direction: <strong id="wind_degrees">--</strong>°</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud: <strong id="cloud_pct">--</strong>%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Cities Table -->
+        <div class="row" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-12">
+                <div class="glass-card cities-table">
+                    <h3 class="table-title mb-4">
+                        <i class="fas fa-globe me-2"></i>
+                        Weather of Popular Cities
+                    </h3>
+                    <div class="table-responsive">
+                        <table class="table modern-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><i class="fas fa-city me-2"></i>City</th>
+                                    <th><i class="fas fa-temperature-high me-2"></i>Temperature</th>
+                                    <th><i class="fas fa-tint me-2"></i>Humidity</th>
+                                    <th><i class="fas fa-wind me-2"></i>Wind Speed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><strong>New York</strong></td>
+                                    <td>18°C</td>
+                                    <td>35%</td>
+                                    <td>15 km/h</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><strong>London</strong></td>
+                                    <td>20°C</td>
+                                    <td>37%</td>
+                                    <td>20 km/h</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><strong>Paris</strong></td>
+                                    <td>26°C</td>
+                                    <td>40%</td>
+                                    <td>25 km/h</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><strong>Delhi</strong></td>
+                                    <td>36°C</td>
+                                    <td>50%</td>
+                                    <td>30 km/h</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    
-    </div>  
-    
-    
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Footer -->
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center text-lg-start mb-3 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="https://github.com/user-attachments/assets/4ee4e42c-3277-4c54-9f42-c34eeb39ca96" alt="Logo" class="footer-logo">
+                        <span class="footer-brand-text">Mausam Mitra</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center mb-3 mb-lg-0">
+                    <div class="social-links">
+                        <a href="https://github.com/krishanmurariji" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/krishan-murari/" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/KrishanMuraari" target="_blank" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/krishanmurariji/" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@Decode-And-discover" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://leetcode.com/Krishanmurariji/" target="_blank" class="social-icon">
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <p class="footer-text mb-0">
+                        Crafted with <i class="fas fa-heart text-danger"></i> by 
+                        <a href="https://krishanmurari.live/" target="_blank" class="footer-link">Krishan Murari</a>
+                    </p>
+                    <p class="footer-copyright">
+                        © 2025 All Rights Reserved
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- About Modal -->
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">
+                        <i class="fas fa-info-circle me-2"></i>
+                        About Mausam Mitra
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">
+                        <strong>Mausam Mitra</strong> is a modern weather application that brings real-time weather updates to your fingertips. Built with cutting-edge web technologies including HTML5, CSS3, Bootstrap 5, and JavaScript, this app provides accurate weather information for any location worldwide.
+                    </p>
+                    <p class="modal-text">
+                        The application features a beautiful glassmorphism design, real-time API integration, and a responsive interface that works seamlessly across all devices. Whether you're planning your day or checking conditions for travel, Mausam Mitra keeps you informed with up-to-date weather data.
+                    </p>
+                    <p class="modal-text mb-0">
+                        <strong>Developed by:</strong> <a href="https://krishanmurari.live/" target="_blank" class="text-info">Krishan Murari</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="index.js"></script>
+</body>
 </html>
